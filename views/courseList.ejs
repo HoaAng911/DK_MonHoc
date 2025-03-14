@@ -1,0 +1,103 @@
+<!DOCTYPE html>
+<html lang="vi">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Danh sách môn học</title>
+    <style>
+        body {
+            font-family: Arial, sans-serif;
+            background-color: #f4f4f4;
+            margin: 0;
+            padding: 20px;
+        }
+
+        h1 {
+            text-align: center;
+            color: #333;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            max-width: 1200px;
+            margin: 0 auto;
+            border-collapse: collapse;
+            background-color: #fff;
+            box-shadow: 0 2px 5px rgba(0, 0, 0, 0.1);
+        }
+
+        th,
+        td {
+            padding: 12px 15px;
+            text-align: center;
+            border: 1px solid #ddd;
+        }
+
+        th {
+            background-color: #4CAF50;
+            color: white;
+            font-weight: bold;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        tr:hover {
+            background-color: #f1f1f1;
+        }
+
+        a {
+            text-decoration: none;
+            color: #fff;
+            background-color: #007BFF;
+            padding: 6px 12px;
+            border-radius: 4px;
+            transition: background-color 0.3s;
+        }
+
+        a:hover {
+            background-color: #0056b3;
+        }
+    </style>
+</head>
+
+<body>
+    <h1>Các môn học hiện có</h1>
+    <table border="1">
+        <tr>
+            <th>Mã môn học</th>
+            <th>Tên môn học</th>
+            <th>Lịch học</th>
+            <th>Số lượng tối đa</th>
+            <th>Số lượng đã đăng ký</th>
+            <th>Hành động</th>
+            <th>Danh sách chờ</th> <!-- Thêm cột mới -->
+        </tr>
+        <% courses.forEach(course=> { %>
+            <tr>
+                <td>
+                    <%= course.courseCode %>
+                </td>
+                <td>
+                    <%= course.courseName %>
+                </td>
+                <td>
+                    <%= course.schedule %>
+                </td>
+                <td>
+                    <%= course.capacity %>
+                </td>
+                <td>
+                    <%= course.enrolled %>
+                </td>
+                <td><a href="/courses/register/<%= course._id %>">Đăng ký</a></td>
+                <td><a href="/courses/waiting/<%= course._id %>">Xem</a></td> <!-- Thêm liên kết -->
+            </tr>
+            <% }) %>
+    </table>
+</body>
+
+</html>
