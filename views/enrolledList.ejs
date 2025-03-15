@@ -4,7 +4,7 @@
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Danh sách chờ - <%= course.courseName %>
+    <title>Danh sách đăng ký - <%= course.courseName %>
     </title>
     <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/bootstrap@5.3.0/dist/css/bootstrap.min.css">
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.4.0/css/all.min.css">
@@ -146,11 +146,11 @@
 
 <body>
     <!-- Tiêu đề -->
-    <h1><i class="fas fa-clock me-2"></i>Danh sách chờ - <%= course.courseName %>
+    <h1><i class="fas fa-users me-2"></i>Danh sách đăng ký - <%= course.courseName %>
     </h1>
 
-    <!-- Bảng danh sách chờ -->
-    <% if (course.waitingList.length> 0) { %>
+    <!-- Bảng danh sách đăng ký -->
+    <% if (enrolledList.length> 0) { %>
         <div class="table-container">
             <div class="table-responsive">
                 <table class="table">
@@ -161,7 +161,7 @@
                         </tr>
                     </thead>
                     <tbody>
-                        <% course.waitingList.forEach(student=> { %>
+                        <% enrolledList.forEach(student=> { %>
                             <tr>
                                 <td>
                                     <%= student.studentId %>
@@ -177,7 +177,7 @@
         </div>
         <% } else { %>
             <p class="no-data"><i class="fas fa-info-circle me-2"></i>Hiện tại không có sinh viên nào trong danh sách
-                chờ.</p>
+                đăng ký.</p>
             <% } %>
 
                 <!-- Liên kết Quay lại -->

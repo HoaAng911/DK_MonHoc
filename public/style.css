@@ -1,0 +1,148 @@
+/* Reset mặc định */
+* {
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: 'Poppins', Arial, sans-serif;
+}
+
+body {
+    background-color: #f4f4f4;
+    color: #333;
+    text-align: center;
+    padding: 20px;
+}
+
+/* Header */
+header {
+    background: linear-gradient(135deg, #007bff, #0056b3);
+    color: white;
+    padding: 20px 0;
+    border-radius: 8px;
+    box-shadow: 0px 4px 10px rgba(0, 0, 0, 0.1);
+}
+
+header h1 {
+    margin-bottom: 5px;
+    font-size: 2rem;
+}
+
+nav {
+    margin-top: 10px;
+}
+
+nav a {
+    color: white;
+    text-decoration: none;
+    margin: 0 20px;
+    font-weight: bold;
+    font-size: 1.1rem;
+    transition: 0.3s ease-in-out;
+}
+
+nav a:hover {
+    text-decoration: underline;
+    color: #ffdd57;
+}
+
+/* Main Content */
+
+
+main h2 {
+    font-size: 2rem;
+    color: #007bff;
+    margin-bottom: 20px;
+}
+
+main p {
+    font-size: 1.1rem;
+    margin-bottom: 20px;
+    line-height: 1.6;
+    color: #555;
+}
+
+/* Danh sách khóa học */
+.course-list {
+    list-style: none;
+    padding: 0;
+}
+
+.course-item {
+    background: #e3e3e3;
+    margin: 15px 0;
+    padding: 20px;
+    border-radius: 10px;
+    text-align: left;
+    box-shadow: 0px 4px 6px rgba(0, 0, 0, 0.1);
+    transition: transform 0.2s ease-in-out;
+}
+
+.course-item:hover {
+    transform: translateY(-5px);
+}
+
+.course-item h3 {
+    color: #007bff;
+    margin-bottom: 10px;
+}
+
+.course-item p {
+    margin-bottom: 15px;
+    font-size: 1rem;
+    color: #444;
+}
+
+.course-item a {
+    display: inline-block;
+    background: #28a745;
+    color: white;
+    padding: 10px 15px;
+    text-decoration: none;
+    border-radius: 5px;
+    font-weight: bold;
+    transition: 0.3s ease-in-out;
+}
+
+.course-item a:hover {
+    background: #218838;
+}
+
+/* Footer */
+
+footer a {
+    color: #007bff;
+    text-decoration: none;
+    font-weight: bold;
+}
+
+footer a:hover {
+    text-decoration: underline;
+    color: #66b3ff;
+}
+/* Đảm bảo footer luôn ở cuối trang */
+html, body {
+    height: 100%;
+    display: flex;
+    flex-direction: column;
+}
+
+main {
+    flex: 1; /* Đẩy footer xuống dưới */
+    max-width: 900px;
+    margin: 40px auto;
+    background: white;
+    padding: 30px;
+    border-radius: 12px;
+    box-shadow: 0px 0px 15px rgba(0, 0, 0, 0.1);
+    text-align: center;
+}
+
+/* Footer cố định ở cuối */
+footer {
+    padding: 15px;
+    background: #222;
+    color: white;
+    text-align: center;
+    border-top: 3px solid #007bff;
+    box-shadow: 0 -2px 10px rgba(0, 0, 0, 0.2);
+}

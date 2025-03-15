@@ -67,3 +67,32 @@ exports.getWaitingList = async (req, res) => {
         res.status(500).send(err.message);
     }
 };
+exports.getEnrolledList = async (req, res) => {
+    try {
+        const courseId = req.params.id;
+
+        // Tìm thông tin khóa học
+        const course = await Course.findById(courseId);
+
+        if (!course) {
+            return res.status(404).send('Course not found');
+        }
+
+        // Tìm danh sách đăng ký với trạng thái 'enrolled' và populate thông tin sinh viên
+        const enrolledRegistrations = await Registration.find({
+            course: courseId,
+            status: 'enrolled'
+        }).populate('student');
+
+        // Tạo danh sách sinh viên đã đăng ký từ các bản ghi đăng ký
+        const enrolledList = enrolledRegistrations.map(registration => ({
+            studentId: registration.student.studentId,
+            name: registration.student.name
+        }));
+
+        // Render trang giao diện với thông tin khóa học và danh sách sinh viên
+        res.render('enrolledList', { course, enrolledList });
+    } catch (err) {
+        res.status(500).send(err.message);
+    }
+};
